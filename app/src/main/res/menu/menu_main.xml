@@ -1,0 +1,57 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/wall1"
+        app:showAsAction="never"
+        android:title="Wall 1"/>
+    <item
+        android:id="@+id/wall2"
+        app:showAsAction="never"
+        android:title="Wall 2"/>
+    <item
+        android:id="@+id/wall3"
+        app:showAsAction="never"
+        android:title="Wall 3"/>
+    <item
+        android:id="@+id/wall4"
+        app:showAsAction="never"
+        android:title="Wall 4"/>
+    <item
+        android:id="@+id/wall5"
+        app:showAsAction="never"
+        android:title="Wall 5"/>
+    <item
+        android:id="@+id/wall6"
+        app:showAsAction="never"
+        android:title="Wall 6"/>
+    <item
+        android:id="@+id/wall7"
+        app:showAsAction="never"
+        android:title="Wall 7"/>
+    <item
+        android:id="@+id/wall8"
+        app:showAsAction="never"
+        android:title="Wall 8"/>
+    <item
+        android:id="@+id/wall9"
+        app:showAsAction="never"
+        android:title="Wall 9"/>
+    <item
+        android:id="@+id/wall10"
+        app:showAsAction="never"
+        android:title="Wall 10"/>
+    <item
+        android:id="@+id/wall11"
+        app:showAsAction="never"
+        android:title="Wall 11"/>
+    <item
+        android:id="@+id/wall12"
+        app:showAsAction="never"
+        android:title="Wall 12"/>
+
+</menu>
