@@ -21,6 +21,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".LayerDrawable"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AboutMe"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

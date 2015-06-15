@@ -1,57 +1,52 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/wall1"
-        app:showAsAction="never"
-        android:title="Wall 1"/>
+        android:title="Wall 1"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall2"
-        app:showAsAction="never"
-        android:title="Wall 2"/>
+        android:title="Wall 2"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall3"
-        app:showAsAction="never"
-        android:title="Wall 3"/>
+        android:title="Wall 3"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall4"
-        app:showAsAction="never"
-        android:title="Wall 4"/>
+        android:title="Wall 4"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall5"
-        app:showAsAction="never"
-        android:title="Wall 5"/>
+        android:title="Wall 5"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall6"
-        app:showAsAction="never"
-        android:title="Wall 6"/>
+        android:title="Wall 6"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall7"
-        app:showAsAction="never"
-        android:title="Wall 7"/>
+        android:title="Wall 7"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall8"
-        app:showAsAction="never"
-        android:title="Wall 8"/>
+        android:title="Wall 8"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall9"
-        app:showAsAction="never"
-        android:title="Wall 9"/>
+        android:title="Wall 9"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall10"
-        app:showAsAction="never"
-        android:title="Wall 10"/>
+        android:title="Wall 10"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall11"
-        app:showAsAction="never"
-        android:title="Wall 11"/>
+        android:title="Wall 11"
+        app:showAsAction="never" />
     <item
         android:id="@+id/wall12"
-        app:showAsAction="never"
-        android:title="Wall 12"/>
+        android:title="Wall 12"
+        app:showAsAction="never" />
 
 </menu>

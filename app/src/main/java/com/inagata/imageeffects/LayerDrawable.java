@@ -19,6 +19,7 @@ public class LayerDrawable extends ActionBarActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setTitle("Layer Drawable");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 

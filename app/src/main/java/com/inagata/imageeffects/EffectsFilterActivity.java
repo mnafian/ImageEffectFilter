@@ -49,6 +49,7 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.effect_factory);
 		ActionBar actionBar = getSupportActionBar();
+		actionBar.setTitle("Effects Factory");
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
