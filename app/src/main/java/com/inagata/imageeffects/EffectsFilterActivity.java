@@ -80,6 +80,7 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 
 		// Set texture parameters
 		GLToolbox.initTexParams();
+		bitmap.recycle();
 	}
 
 	private void initEffect() {
