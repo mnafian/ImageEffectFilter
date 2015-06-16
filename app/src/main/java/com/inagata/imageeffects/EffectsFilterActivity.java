@@ -1,7 +1,6 @@
 package com.inagata.imageeffects;
 
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.effect.Effect;
@@ -11,18 +10,13 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.nio.IntBuffer;
-import java.util.Random;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -247,32 +241,32 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 			applyEffect();
 		}
 		renderResult();
-		if (saveFrame) {
-			saveBitmap(takeScreenshot(gl));
-		}
+//		if (saveFrame) {
+//			saveBitmap(takeScreenshot(gl));
+//		}
 	}
 
-	private void saveBitmap(Bitmap bitmap) {
-		String root = Environment.getExternalStorageDirectory().toString();
-	    File myDir = new File(root + "/saved_images");    
-	    myDir.mkdirs();
-	    Random generator = new Random();
-	    int n = 10000;
-	    n = generator.nextInt(n);
-	    String fname = "Image-"+ n +".jpg";
-	    File file = new File (myDir, fname);
-	    if (file.exists ()) file.delete (); 
-	    try {
-	           FileOutputStream out = new FileOutputStream(file);
-	           bitmap.compress(CompressFormat.JPEG, 100, out);
-	           out.flush();
-	           out.close();
-	           Log.i("TAG", "Image SAVED=========="+file.getAbsolutePath());
-	    } catch (Exception e) {
-	           e.printStackTrace();
-	    }
-		
-	}
+//	private void saveBitmap(Bitmap bitmap) {
+//		String root = Environment.getExternalStorageDirectory().toString();
+//	    File myDir = new File(root + "/saved_images");
+//	    myDir.mkdirs();
+//	    Random generator = new Random();
+//	    int n = 10000;
+//	    n = generator.nextInt(n);
+//	    String fname = "Image-"+ n +".jpg";
+//	    File file = new File (myDir, fname);
+//	    if (file.exists ()) file.delete ();
+//	    try {
+//	           FileOutputStream out = new FileOutputStream(file);
+//	           bitmap.compress(CompressFormat.JPEG, 100, out);
+//	           out.flush();
+//	           out.close();
+//	           Log.i("TAG", "Image SAVED=========="+file.getAbsolutePath());
+//	    } catch (Exception e) {
+//	           e.printStackTrace();
+//	    }
+//
+//	}
 
 	public Bitmap takeScreenshot(GL10 mGL) {
 		final int mWidth = mEffectView.getWidth();
