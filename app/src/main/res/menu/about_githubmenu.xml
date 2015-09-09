@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/Github"
-        android:title="Github"
+        android:title="Fork me On Github"
         app:showAsAction="never" />
 
 </menu>

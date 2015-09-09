@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.0"
 
     defaultConfig {
         applicationId "com.inagata.imageeffects"
@@ -19,7 +19,17 @@ android {
     }
 }
 
+repositories{
+    maven {
+        url 'http://dl.bintray.com/amulyakhare/maven'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:design:23.+'
+    compile 'com.android.support:recyclerview-v7:23.0.+'
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
 }

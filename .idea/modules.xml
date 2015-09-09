@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImageEffects.iml" filepath="$PROJECT_DIR$/ImageEffects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageEffect_NabilahJKT48.iml" filepath="$PROJECT_DIR$/ImageEffect_NabilahJKT48.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

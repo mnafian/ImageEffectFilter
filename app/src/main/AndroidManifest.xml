@@ -9,7 +9,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".Activity.MainMenuActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EffectsFilterActivity"
+        <activity android:name=".Fragment.EffectsFilterFragment"
             android:screenOrientation="portrait"/>
-        <activity android:name=".LayerDrawable"
+        <activity android:name=".Fragment.LayerDrawableFragment"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".AboutMe"
+            android:name=".Activity.AboutMe"
             android:screenOrientation="portrait" />
     </application>
 

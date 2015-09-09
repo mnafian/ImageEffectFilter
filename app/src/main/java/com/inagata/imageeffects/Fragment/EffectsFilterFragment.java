@@ -1,4 +1,4 @@
-package com.inagata.imageeffects;
+package com.inagata.imageeffects.Fragment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,19 +10,25 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import java.nio.IntBuffer;
+import com.inagata.imageeffects.Adapter.FilterAdapterFactory;
+import com.inagata.imageeffects.Utilities.GLToolbox;
+import com.inagata.imageeffects.R;
+import com.inagata.imageeffects.Utilities.RecyclerItemClickListener;
+import com.inagata.imageeffects.Utilities.TextureRenderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class EffectsFilterActivity extends ActionBarActivity implements GLSurfaceView.Renderer {
+public class EffectsFilterFragment extends Fragment implements GLSurfaceView.Renderer {
 
+	private RecyclerView recList;
 	int mCurrentEffect;
 	private GLSurfaceView mEffectView;
 	private int[] mTextures = new int[2];
@@ -39,23 +45,33 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.effect_factory);
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle("Effects Factory");
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setHomeButtonEnabled(true);
-		/**
-		 * Initialise the renderer and tell it to only render when Explicit
-		 * requested with the RENDERMODE_WHEN_DIRTY option
-		 */
-		mEffectView = (GLSurfaceView) findViewById(R.id.effectsview);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.imf_effect_factory, container, false);
+		mEffectView = (GLSurfaceView) rootView.findViewById(R.id.effectsview);
 		mEffectView.setEGLContextClientVersion(2);
 		mEffectView.setRenderer(this);
 		mEffectView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-		mCurrentEffect = R.id.none;
+		mCurrentEffect = 0;
+
+		LinearLayoutManager layoutManager
+				= new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+
+		recList = (RecyclerView) rootView.findViewById(R.id.rc_filter);
+		recList.setHasFixedSize(true);
+		recList.setLayoutManager(layoutManager);
+
+		FilterAdapterFactory filterAdapter = new FilterAdapterFactory(getActivity());
+		recList.setAdapter(filterAdapter);
+
+        recList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                setCurrentEffect(position);
+                mEffectView.requestRender();
+            }
+        }));
+
+		return rootView;
 	}
 
 	private void loadTextures() {
@@ -87,123 +103,117 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 		 */
 		switch (mCurrentEffect) {
 
-		case R.id.none:
+		case 0:
 			break;
 
-		case R.id.autofix:
+		case 1:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_AUTOFIX);
 			mEffect.setParameter("scale", 0.5f);
 			break;
 
-		case R.id.bw:
+		case 2:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_BLACKWHITE);
 			mEffect.setParameter("black", .1f);
 			mEffect.setParameter("white", .7f);
 			break;
 
-		case R.id.brightness:
+		case 3:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_BRIGHTNESS);
 			mEffect.setParameter("brightness", 2.0f);
 			break;
 
-		case R.id.contrast:
+		case 4:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_CONTRAST);
 			mEffect.setParameter("contrast", 1.4f);
 			break;
 
-		case R.id.crossprocess:
+		case 5:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_CROSSPROCESS);
 			break;
 
-		case R.id.documentary:
+		case 6:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_DOCUMENTARY);
 			break;
 
-		case R.id.duotone:
+		case 7:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_DUOTONE);
 			mEffect.setParameter("first_color", Color.YELLOW);
 			mEffect.setParameter("second_color", Color.DKGRAY);
 			break;
 
-		case R.id.filllight:
+		case 8:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_FILLLIGHT);
 			mEffect.setParameter("strength", .8f);
 			break;
 
-		case R.id.fisheye:
+		case 9:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_FISHEYE);
 			mEffect.setParameter("scale", .5f);
 			break;
 
-		case R.id.flipvert:
+		case 10:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_FLIP);
 			mEffect.setParameter("vertical", true);
 			break;
 
-		case R.id.fliphor:
+		case 11:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_FLIP);
 			mEffect.setParameter("horizontal", true);
 			break;
 
-		case R.id.grain:
+		case 12:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_GRAIN);
 			mEffect.setParameter("strength", 1.0f);
 			break;
 
-		case R.id.grayscale:
+		case 13:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_GRAYSCALE);
 			break;
 
-		case R.id.lomoish:
+		case 14:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_LOMOISH);
 			break;
 
-		case R.id.negative:
+		case 15:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_NEGATIVE);
 			break;
 
-		case R.id.posterize:
+		case 16:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_POSTERIZE);
 			break;
 
-		case R.id.rotate:
+		case 17:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_ROTATE);
 			mEffect.setParameter("angle", 180);
 			break;
 
-		case R.id.saturate:
+		case 18:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_SATURATE);
 			mEffect.setParameter("scale", .5f);
 			break;
 
-		case R.id.sepia:
+		case 19:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_SEPIA);
 			break;
 
-		case R.id.sharpen:
+		case 20:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_SHARPEN);
 			break;
 
-		case R.id.temperature:
+		case 21:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_TEMPERATURE);
 			mEffect.setParameter("scale", .9f);
 			break;
 
-		case R.id.tint:
+		case 22:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_TINT);
 			mEffect.setParameter("tint", Color.MAGENTA);
 			break;
 
-		case R.id.vignette:
+		case 23:
 			mEffect = effectFactory.createEffect(EffectFactory.EFFECT_VIGNETTE);
 			mEffect.setParameter("scale", .5f);
 			break;
-
-			case android.R.id.home:
-				mEffect = effectFactory.createEffect(EffectFactory.EFFECT_AUTOFIX);
-				mEffect.setParameter("scale", 0.5f);
-				finish();
-				break;
 
 		default:
 			break;
@@ -216,7 +226,7 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 	}
 
 	private void renderResult() {
-		if (mCurrentEffect != R.id.none) {
+		if (mCurrentEffect != 0) {
 			// if no effect is chosen, just render the original bitmap
 			mTexRenderer.renderTexture(mTextures[1]);
 		} else {
@@ -235,57 +245,12 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 			loadTextures();
 			mInitialized = true;
 		}
-		if (mCurrentEffect != R.id.none) {
+		if (mCurrentEffect != 0) {
 			// if an effect is chosen initialize it and apply it to the texture
 			initEffect();
 			applyEffect();
 		}
 		renderResult();
-//		if (saveFrame) {
-//			saveBitmap(takeScreenshot(gl));
-//		}
-	}
-
-//	private void saveBitmap(Bitmap bitmap) {
-//		String root = Environment.getExternalStorageDirectory().toString();
-//	    File myDir = new File(root + "/saved_images");
-//	    myDir.mkdirs();
-//	    Random generator = new Random();
-//	    int n = 10000;
-//	    n = generator.nextInt(n);
-//	    String fname = "Image-"+ n +".jpg";
-//	    File file = new File (myDir, fname);
-//	    if (file.exists ()) file.delete ();
-//	    try {
-//	           FileOutputStream out = new FileOutputStream(file);
-//	           bitmap.compress(CompressFormat.JPEG, 100, out);
-//	           out.flush();
-//	           out.close();
-//	           Log.i("TAG", "Image SAVED=========="+file.getAbsolutePath());
-//	    } catch (Exception e) {
-//	           e.printStackTrace();
-//	    }
-//
-//	}
-
-	public Bitmap takeScreenshot(GL10 mGL) {
-		final int mWidth = mEffectView.getWidth();
-		final int mHeight = mEffectView.getHeight();
-		IntBuffer ib = IntBuffer.allocate(mWidth * mHeight);
-		IntBuffer ibt = IntBuffer.allocate(mWidth * mHeight);
-		mGL.glReadPixels(0, 0, mWidth, mHeight, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, ib);
-
-		// Convert upside down mirror-reversed image to right-side up normal
-		// image.
-		for (int i = 0; i < mHeight; i++) {
-			for (int j = 0; j < mWidth; j++) {
-				ibt.put((mHeight - i - 1) * mWidth + j, ib.get(i * mWidth + j));
-			}
-		}
-
-		Bitmap mBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
-		mBitmap.copyPixelsFromBuffer(ibt);
-		return mBitmap;
 	}
 
 	@Override
@@ -297,19 +262,5 @@ public class EffectsFilterActivity extends ActionBarActivity implements GLSurfac
 
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		setCurrentEffect(item.getItemId());
-		mEffectView.requestRender();
-		return true;
 	}
 }
