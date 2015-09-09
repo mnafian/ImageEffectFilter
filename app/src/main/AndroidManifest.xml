@@ -17,10 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragment.EffectsFilterFragment"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Fragment.LayerDrawableFragment"
-            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity.AboutMe"
             android:screenOrientation="portrait" />

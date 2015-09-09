@@ -38,76 +38,80 @@ public class LayerDrawableFragment extends Fragment {
         recList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Resources r = getResources();
-                Drawable[] layers = new Drawable[2];
-                layers[0] = r.getDrawable(R.drawable.nabilah);
-                switch (position) {
-                    case 0:
-                        layers[1] = r.getDrawable(R.drawable.wall1box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 1:
-                        layers[1] = r.getDrawable(R.drawable.wall2box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 2:
-                        layers[1] = r.getDrawable(R.drawable.wall3box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 3:
-                        layers[1] = r.getDrawable(R.drawable.wall4box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 4:
-                        layers[1] = r.getDrawable(R.drawable.wall5box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 5:
-                        layers[1] = r.getDrawable(R.drawable.wall6box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 6:
-                        layers[1] = r.getDrawable(R.drawable.wall7box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 7:
-                        layers[1] = r.getDrawable(R.drawable.wall8box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 8:
-                        layers[1] = r.getDrawable(R.drawable.wall9box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 9:
-                        layers[1] = r.getDrawable(R.drawable.wall10box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 10:
-                        layers[1] = r.getDrawable(R.drawable.wall11box);
-                        layers[1].setAlpha(90);
-                        break;
-
-                    case 11:
-                        layers[1] = r.getDrawable(R.drawable.wall12box);
-                        layers[1].setAlpha(90);
-                        break;
-                }
-                android.graphics.drawable.LayerDrawable layerDrawable = new android.graphics.drawable.LayerDrawable(layers);
-                testimage.setImageDrawable(layerDrawable);
-                testimage.destroyDrawingCache();
+                updateImage(position);
             }
         }));
 
         return view;
+    }
+    
+    public void updateImage(int position){
+        Resources r = getResources();
+        Drawable[] layers = new Drawable[2];
+        layers[0] = r.getDrawable(R.drawable.nabilah);
+        switch (position) {
+            case 0:
+                layers[1] = r.getDrawable(R.drawable.wall1box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 1:
+                layers[1] = r.getDrawable(R.drawable.wall2box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 2:
+                layers[1] = r.getDrawable(R.drawable.wall3box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 3:
+                layers[1] = r.getDrawable(R.drawable.wall4box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 4:
+                layers[1] = r.getDrawable(R.drawable.wall5box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 5:
+                layers[1] = r.getDrawable(R.drawable.wall6box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 6:
+                layers[1] = r.getDrawable(R.drawable.wall7box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 7:
+                layers[1] = r.getDrawable(R.drawable.wall8box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 8:
+                layers[1] = r.getDrawable(R.drawable.wall9box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 9:
+                layers[1] = r.getDrawable(R.drawable.wall10box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 10:
+                layers[1] = r.getDrawable(R.drawable.wall11box);
+                layers[1].setAlpha(90);
+                break;
+
+            case 11:
+                layers[1] = r.getDrawable(R.drawable.wall12box);
+                layers[1].setAlpha(90);
+                break;
+        }
+        android.graphics.drawable.LayerDrawable layerDrawable = new android.graphics.drawable.LayerDrawable(layers);
+        testimage.setImageDrawable(layerDrawable);
+        testimage.destroyDrawingCache();
     }
 }
