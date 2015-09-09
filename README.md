@@ -5,12 +5,10 @@ Just clone and build to your Android studio, choose Effect Factory if you want s
 choose layer drawable if want use 2 stacked drawable to create effect, this is using layer drawable.
 
 <img alt="Home Menu" 
-       src="https://dl.dropboxusercontent.com/u/109992015/2015_06_16_03.39.07.png" width="300" height="500"/>
+       src="https://raw.githubusercontent.com/mnafian/ImageEffect_NabilahJKT48/master/device-2015-09-09-211522.png" width="300" height="500"/>
 <img alt="Effect" 
-       src="https://dl.dropboxusercontent.com/u/109992015/2015_06_16_03.39.39.png" width="300" height="500"/>
+       src="https://raw.githubusercontent.com/mnafian/ImageEffect_NabilahJKT48/master/device-2015-09-09-211615.png" width="300" height="500"/>
 <img alt="Effect" 
-       src="https://dl.dropboxusercontent.com/u/109992015/2015_06_16_03.39.59.png" width="300" height="500"/>
+       src="https://raw.githubusercontent.com/mnafian/ImageEffect_NabilahJKT48/master/device-2015-09-09-211705.png" width="300" height="500"/>
 <img alt="Effect" 
-       src="https://dl.dropboxusercontent.com/u/109992015/2015_06_16_03.40.35.png" width="300" height="500"/>
-<img alt="Effect"       
-       src="https://dl.dropboxusercontent.com/u/109992015/2015_06_16_09.20.17.png" width="300" height="500"/>
+       src="https://raw.githubusercontent.com/mnafian/ImageEffect_NabilahJKT48/master/device-2015-09-09-211757.png" width="300" height="500"/>
