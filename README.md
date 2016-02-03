@@ -1,8 +1,8 @@
 # ImageEffectFilter
 Android image filter processing using layer drawable and effect factory android.
 
-Just clone and build to your Android studio, choose Effect Factory if you want select effect from effect factory from Android (Use minium API 14)
-choose layer drawable if want use 2 stacked drawable to create effect, this is using layer drawable.
+Choose Effect Factory if you want select effect from effect factory from Android (Use minium API 14).
+Choose layer drawable if want use 2 stacked drawable to create effect, this is using layer drawable. For future sample development I want to create effect with GPUImage Pricessing library, keep in touch. 
 
 <img alt="Home Menu" 
        src="https://raw.githubusercontent.com/mnafian/ImageEffect_NabilahJKT48/master/device-2015-09-09-211522.png" width="300" height="500"/>
