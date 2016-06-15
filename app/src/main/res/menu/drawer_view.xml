@@ -10,6 +10,10 @@
             android:id="@+id/bt_layerd"
             android:icon="@drawable/ic_event"
             android:title="Layer Drawable" />
+        <item
+            android:id="@+id/bt_gpu"
+            android:icon="@drawable/ic_graphic_eq"
+            android:title="GPU Image" />
     </group>
 
 </menu>
