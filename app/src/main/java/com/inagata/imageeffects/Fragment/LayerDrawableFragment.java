@@ -44,7 +44,6 @@ public class LayerDrawableFragment extends Fragment {
 
         return view;
     }
-
     public void updateImage(int position){
         Resources r = getResources();
         Drawable[] layers = new Drawable[2];

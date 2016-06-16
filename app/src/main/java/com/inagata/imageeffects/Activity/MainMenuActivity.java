@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.inagata.imageeffects.Fragment.EffectsFilterFragment;
+import com.inagata.imageeffects.Fragment.GpuFilterFragment;
 import com.inagata.imageeffects.Fragment.LayerDrawableFragment;
 import com.inagata.imageeffects.R;
 
@@ -60,6 +61,9 @@ public class MainMenuActivity extends AppCompatActivity{
                                 break;
                             case R.id.bt_layerd:
                                 changeFragment(new LayerDrawableFragment());
+                                break;
+                            case R.id.bt_gpu:
+                                changeFragment(new GpuFilterFragment());
                                 break;
                         }
 
